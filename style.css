@@ -1,0 +1,189 @@
+/* Style of cookieberlin.github.io, after the kv4p HT project site: system font, warm accent, black bar and hero. */
+
+:root {
+  color-scheme: light dark;
+  --bg: #F8F8F8;
+  --surface: #FFFFFF;
+  --text: #1F1E1A;
+  --muted: #5C5A52;
+  --border: #D2D0C8;
+  --accent: #AD5642;
+  --accent-hover: #8B452F;
+  --accent-text: #9A4A38;
+  --hero-bg: #000000;
+  --hero-text: #FFFCEA;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.10), 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121212;
+    --surface: #1C1C1C;
+    --text: #EDEBE3;
+    --muted: #A8A598;
+    --border: #2E2E2E;
+    --accent-text: #E08E78;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.35);
+  }
+}
+
+:root[data-theme="light"] { color-scheme: light; }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121212;
+  --surface: #1C1C1C;
+  --text: #EDEBE3;
+  --muted: #A8A598;
+  --border: #2E2E2E;
+  --accent-text: #E08E78;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent-text); }
+a:hover { color: var(--accent-hover); }
+
+/* Bar on top */
+
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 1rem;
+  background: var(--hero-bg);
+  color: var(--hero-text);
+}
+
+.brand { color: var(--hero-text); font-weight: 600; text-decoration: none; }
+.brand:hover { color: #FFFFFF; }
+
+/* The switch of the colour scheme: system, light or dark. */
+.theme {
+  padding: 0.25rem 0.7rem;
+  border: 1px solid rgba(255, 252, 234, 0.5);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--hero-text);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.theme:hover { border-color: var(--hero-text); }
+
+/* Buttons */
+
+.button {
+  display: inline-block;
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #FFFFFF;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button:hover { background: var(--accent-hover); color: #FFFFFF; }
+
+/* Hero */
+
+.hero {
+  padding: 4rem 1rem 3.5rem;
+  background: radial-gradient(circle at 50% 30%, #1E1B16 0%, var(--hero-bg) 70%);
+  color: var(--hero-text);
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.tagline {
+  max-width: 34rem;
+  margin: 0 auto;
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  opacity: 0.9;
+}
+
+/* Content */
+
+main { max-width: 60rem; margin: 0 auto; padding: 2.5rem 1rem 3rem; }
+
+main h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* Project list */
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+}
+
+.card h3 { margin: 0 0 0.25rem; font-size: 1.3rem; font-weight: 600; line-height: 1.3; }
+.card h3 a { color: var(--text); text-decoration: none; }
+.card h3 a:hover { color: var(--accent-text); }
+
+.platforms { margin: 0 0 0.75rem; color: var(--muted); font-size: 0.9rem; }
+
+.card .desc { margin: 0 0 1.25rem; flex: 1; }
+
+.links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem; }
+
+.source { font-size: 0.95rem; }
+
+/* Error page */
+
+main.notfound { max-width: 40rem; padding: 4rem 1rem; text-align: center; }
+
+.notfound h1 { margin: 0 0 0.5rem; font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 600; line-height: 1.25; }
+.notfound p { margin: 0 0 2rem; color: var(--muted); }
+
+/* Footer */
+
+footer {
+  padding: 1.5rem 1rem 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+footer a { color: var(--muted); }
+footer a:hover { color: var(--accent-text); }

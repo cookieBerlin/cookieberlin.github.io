@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cookieBerlin – open source apps for iPhone, iPad, Mac and Apple Watch</title>
+  <meta name="description" content="Open source apps by cookieBerlin: Engelsystem Client for iPhone, iPad and Apple Watch, and kv4p HT (by DB3AC) for iPhone, iPad and Mac.">
+  <link rel="canonical" href="https://cookieberlin.github.io/">
+  <meta name="google-site-verification" content="vhthRshi5zQNoeJxvasUAu0BnxTzgdeufqKhue72Mvo" />
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="cookieBerlin – open source apps">
+  <meta property="og:description" content="Open source apps by cookieBerlin: Engelsystem Client and kv4p HT (by DB3AC).">
+  <meta property="og:url" content="https://cookieberlin.github.io/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://cookieberlin.github.io/#person",
+        "name": "cookieBerlin",
+        "url": "https://cookieberlin.github.io/",
+        "sameAs": ["https://github.com/cookieBerlin"]
+      },
+      {
+        "@type": "ItemList",
+        "name": "Projects",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "Engelsystem Client",
+              "url": "https://cookieberlin.github.io/EngelsystemClient/",
+              "applicationCategory": "UtilitiesApplication",
+              "operatingSystem": "iOS, iPadOS, watchOS",
+              "author": { "@id": "https://cookieberlin.github.io/#person" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "kv4p HT (by DB3AC)",
+              "url": "https://cookieberlin.github.io/kv4p-ht/",
+              "applicationCategory": "UtilitiesApplication",
+              "operatingSystem": "iOS, iPadOS, macOS",
+              "author": { "@id": "https://cookieberlin.github.io/#person" }
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    /* Apply the saved colour scheme before the page paints. */
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <a class="brand" href="/">cookieBerlin</a>
+      <button class="theme" type="button" id="theme" hidden>Theme: System</button>
+    </div>
+    <div class="hero">
+      <h1>cookieBerlin</h1>
+      <p class="tagline">Open source apps for iPhone, iPad, Mac and Apple&nbsp;Watch.</p>
+    </div>
+  </header>
+
+  <main>
+    <h2>Projects</h2>
+    <ul class="projects">
+      <li class="card">
+        <h3><a href="/EngelsystemClient/">Engelsystem Client</a></h3>
+        <p class="platforms">iPhone · iPad · Apple Watch</p>
+        <p class="desc">Unofficial native app for Engelsystem: your shifts, news, messages and reminders from your instance's REST API.</p>
+        <div class="links">
+          <a class="button" href="/EngelsystemClient/">Visit website</a>
+          <a class="source" href="https://github.com/cookieBerlin/EngelsystemClient">Source on GitHub</a>
+        </div>
+      </li>
+      <li class="card">
+        <h3><a href="/kv4p-ht/">kv4p HT (by DB3AC)</a></h3>
+        <p class="platforms">iPhone · iPad · Mac</p>
+        <p class="desc">A native app for the kv4p HT, an open source handheld ham radio. Free, open source, without tracking.</p>
+        <div class="links">
+          <a class="button" href="/kv4p-ht/">Visit website</a>
+          <a class="source" href="https://github.com/cookieBerlin/kv4p-ht">Source on GitHub</a>
+        </div>
+      </li>
+    </ul>
+  </main>
+
+  <footer>
+    <a href="https://github.com/cookieBerlin">cookieBerlin on GitHub</a>
+  </footer>
+
+  <script>
+    /* Colour scheme switch: System → Light → Dark. */
+    (function () {
+      var btn = document.getElementById("theme");
+      var root = document.documentElement;
+      var order = ["system", "light", "dark"];
+      var labels = { system: "System", light: "Light", dark: "Dark" };
+      var current = root.getAttribute("data-theme") || "system";
+
+      function apply(mode) {
+        current = mode;
+        if (mode === "system") root.removeAttribute("data-theme");
+        else root.setAttribute("data-theme", mode);
+        btn.textContent = "Theme: " + labels[mode];
+        try {
+          if (mode === "system") localStorage.removeItem("theme");
+          else localStorage.setItem("theme", mode);
+        } catch (e) {}
+      }
+
+      btn.addEventListener("click", function () {
+        apply(order[(order.indexOf(current) + 1) % order.length]);
+      });
+      btn.textContent = "Theme: " + labels[current];
+      btn.hidden = false;
+    })();
+  </script>
+</body>
+</html>

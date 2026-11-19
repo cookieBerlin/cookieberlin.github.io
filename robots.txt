@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cookieberlin.github.io/sitemap.xml
+Sitemap: https://cookieberlin.github.io/EngelsystemClient/sitemap.xml
