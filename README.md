@@ -13,7 +13,7 @@ Plain HTML and CSS, no build step. GitHub Pages serves the `main` branch as is (
 |---|---|
 | `index.html` | Start page with the project list, SEO meta tags, structured data and the Search Console verification tag |
 | `style.css` | Shared stylesheet for all pages (light and dark colours as CSS variables) |
-| `404.html` | Error page for the whole host (also used by project sites without their own 404) |
+| `404.html` | Error page for the start site; project sites need their own `404.html`, GitHub shows its default page otherwise |
 | `robots.txt` | Applies to the whole host; points to the sitemaps |
 | `sitemap.xml` | Start page and the kv4p-ht pages (kv4p-ht has no sitemap of its own) |
 
